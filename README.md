@@ -74,9 +74,29 @@
 
 **The Structured Main Content**
 1. Introduction to the Flutter Animate library
-    Overview of the features and capabilities
-    How to install and set up the library
+    - Overview of the features and capabilities
+    - How to install and set up the library
     ```yaml
     flutter_animate: ^2.1.0
     ```
+2. Using pre-built effects
+    - Overview of available effects (fade, scale, slide, flip, blur, shake, shimmer, shadows, and color effects)
+    - Example usage and code snippets    
+    ```dart
+    Text("Hello World!").animate()
+    .fadeIn() // uses `Animate.defaultDuration`
+    .scale() // inherits duration from fadeIn
+    .move(delay: 300.ms, duration: 600.ms) // runs after the above w/new duration
+    .blurXY() // inherits the delay & duration from move
+    ```
+3. Creating custom effects
+    - Overview of the simplified animated builders
+    - How to create and implement custom effects
+    - Example usage and code snippets
+4. Synchronizing animations
+    - Overview of the different ways to synchronize animations with other widgets and events
+    - Example usage and code snippets
+5. Conclusion and next steps
+    - Summary of key takeaways
+    - Additional resources for further learning and development
     
