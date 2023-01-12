@@ -76,12 +76,13 @@
 1. Introduction to the Flutter Animate library
     - Overview of the features and capabilities
     - How to install and set up the library
+    * For using the ```flutter_animate``` we need to add this package
     ```yaml
     flutter_animate: ^2.1.0
     ```
 2. Using pre-built effects
     - Overview of available effects (fade, scale, slide, flip, blur, shake, shimmer, shadows, and color effects)
-    - Example usage and code snippets    
+    - Example  
     ```dart
     Text("Hello World!").animate()
     .fadeIn() // uses `Animate.defaultDuration`
@@ -91,12 +92,53 @@
     ```
 3. Creating custom effects
     - Overview of the simplified animated builders
-    - How to create and implement custom effects
-    - Example usage and code snippets
-4. Synchronizing animations
-    - Overview of the different ways to synchronize animations with other widgets and events
-    - Example usage and code snippets
-5. Conclusion and next steps
-    - Summary of key takeaways
-    - Additional resources for further learning and development
-    
+    - How to create and implement custom effects\
+        For example, this would add a background behind the text and fade it from red to
+        blue:
+
+        ``` dart
+        Text("Hello World").animate().custom(
+        duration: 300.ms,
+        builder: (context, value, child) => Container(
+            color: Color.lerp(Colors.red, Colors.blue, value),
+            padding: EdgeInsets.all(8),
+            child: child, // child is the Text widget being animated
+        )
+        )
+        ```
+        `Animate` can be created without a child, so you use `CustomEffect` as a
+        simplified builder. For example, this would build text counting down from 10,
+        and fading out:
+
+        ``` dart
+        Animate().custom(
+        duration: 10.seconds,
+        begin: 10,
+        end: 0,
+        builder: (_, value, __) => Text(value.round()),
+        ).fadeOut()
+        ```
+    - How to create and implement toggle effect
+     `ToggleEffect` also provides builder functionality, but instead of a `double`,
+        it provides a boolean value equal to `true` before the end of the effect and
+        `false` after (ie. after its duration).
+
+        ``` dart
+        Animate().toggle(
+        duration: 2.seconds,
+        builder: (_, value, __) => Text(value ? "Before" : "After"),
+        )
+        ```
+
+        This can also be used to activate "Animated" widgets, like `AnimatedContainer`,
+        by toggling their values with a minimal delay:
+
+        ``` dart
+        Animate().toggle(
+        duration: 1.ms,
+        builder: (_, value, __) => AnimatedContainer(
+            duration: 1.seconds,
+            color: value ? Colors.red : Colors.green,
+        ),
+        )
+        ```
