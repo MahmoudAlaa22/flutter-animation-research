@@ -118,7 +118,7 @@
         builder: (_, value, __) => Text(value.round()),
         ).fadeOut()
         ```
-    - How to create and implement toggle effect\
+    - How to create and implement toggle effect
      `ToggleEffect` also provides builder functionality, but instead of a `double`,
         it provides a boolean value equal to `true` before the end of the effect and
         `false` after (ie. after its duration).
@@ -142,3 +142,20 @@
         ),
         )
         ```
+    - How to create and implement swap effect\
+        `SwapEffect` lets you swap out the whole target widget at a specified time:
+
+        ``` dart
+        Text("Before").animate()
+        .swap(duration: 900.ms, builder: (_, __) => Text("After"))
+        ```
+
+        This can also be useful for creating sequential effects, by swapping the target
+        widget back in, effectively wiping all previous effects:
+
+        ``` dart
+        text.animate().fadeOut(300.ms) // fade out & then...
+        // swap in original widget & fade back in via a new Animate:
+        .swap(builder: (_, child) => child.animate().fadeIn())
+        ```
+
