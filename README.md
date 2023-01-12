@@ -118,7 +118,7 @@
         builder: (_, value, __) => Text(value.round()),
         ).fadeOut()
         ```
-    - How to create and implement toggle effect
+    - How to create and implement toggle effect\
      `ToggleEffect` also provides builder functionality, but instead of a `double`,
         it provides a boolean value equal to `true` before the end of the effect and
         `false` after (ie. after its duration).
