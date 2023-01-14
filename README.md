@@ -1,6 +1,6 @@
-## 1. Research: Project Title 
+## 1. Research: Project Title
 
-- Keywords: 
+- Keywords:
   - flutter animation
   - flutter animation controller
   - flutter animation example
@@ -19,7 +19,7 @@
   - flutter animation controller fling speed
   - flutter animation slow down
   - flutter animation choppy
-  - flutter loading animation	
+  - flutter loading animation
   - FadeInDown Flutter
   - SlideTransition Flutter
   - gesturedetector flutter animation
@@ -27,26 +27,25 @@
   - how animation image in decoration in flutter
   - flutter how to replay animation
   - how to make flutter animation
-  - lottie flutter	
-  - animation flutter	
+  - lottie flutter
+  - animation flutter
   
 - Video Title:  "Creating Dynamic Animations in Flutter: A Comprehensive Guide to the Flutter Animate Library"
-
 
 ## 2. Research: Competitors
 
 **Flutter Videos/Articles**
 
-- https://pub.dev/packages/flutter_animate (Official package documentation)
-- https://blog.gskinner.com/archives/2022/09/introducing-flutter-animate.html
-- https://guillaume.bernos.dev/using-flutter_animate-for-a-flutter-game-animation/
-
+- <https://pub.dev/packages/flutter_animate> (Official package documentation)
+- <https://blog.gskinner.com/archives/2022/09/introducing-flutter-animate.html>
+- <https://guillaume.bernos.dev/using-flutter_animate-for-a-flutter-game-animation/>
 
 **Android/Swift/React Videos**
 
 - NA
 
-**Great Features** 
+**Great Features**
+
 - Pre-built effects such as fade, scale, slide, flip, blur, shake, shimmer, shadows, and color effects (saturation and tint)
 - Easy to use API that eliminates the need to fuss with AnimationController and StatefulWidget
 - Simplified animated builders
@@ -54,14 +53,14 @@
 - Integrated events
 - Possibility to create custom effects.
 
+**Problems from Videos**
 
-**Problems from Videos** 
 - NA
 
 **Problems from Flutter Stackoverflow**
 
-- https://stackoverflow.com/questions/74719732/how-to-animate-multiple-children-while-scrolling-using-flutter-animate-package
-- https://stackoverflow.com/questions/74977927/how-to-restart-an-animation-with-flutter-animate
+- <https://stackoverflow.com/questions/74719732/how-to-animate-multiple-children-while-scrolling-using-flutter-animate-package>
+- <https://stackoverflow.com/questions/74977927/how-to-restart-an-animation-with-flutter-animate>
 
 ## 3. Video Structure
 
@@ -75,16 +74,20 @@
 3. "In this video lesson, we will be diving into the Flutter Animate library and exploring its various features to create dynamic and visually stunning animations in your Flutter app. From pre-built effects to custom animations and synchronization, we will cover it all. Join us as we learn how to take your Flutter app to the next level with the Flutter Animate library."
 
 **The Structured Main Content**
+
 1. Introduction to the Flutter Animate library
     - Overview of the features and capabilities
     - How to install and set up the library
-    * For using the ```flutter_animate``` we need to add this package
+    - For using the ```flutter_animate``` we need to add this package
+
     ```yaml
     flutter_animate: ^2.1.0
     ```
+
 2. Using pre-built effects
     - Overview of available effects (fade, scale, slide, flip, blur, shake, shimmer, shadows, and color effects)
     - Example  
+
     ```dart
     Text("Hello World!").animate()
     .fadeIn() // uses `Animate.defaultDuration`
@@ -92,6 +95,7 @@
     .move(delay: 300.ms, duration: 600.ms) // runs after the above w/new duration
     .blurXY() // inherits the delay & duration from move
     ```
+
 3. Creating custom effects
     - Overview of the simplified animated builders
     - How to create and implement custom effects\
@@ -108,6 +112,7 @@
         )
         )
         ```
+
         `Animate` can be created without a child, so you use `CustomEffect` as a
         simplified builder. For example, this would build text counting down from 10,
         and fading out:
@@ -120,6 +125,7 @@
         builder: (_, value, __) => Text(value.round()),
         ).fadeOut()
         ```
+
     - How to create and implement toggle effect\
      `ToggleEffect` also provides builder functionality, but instead of a `double`,
         it provides a boolean value equal to `true` before the end of the effect and
@@ -144,6 +150,7 @@
         ),
         )
         ```
+
     - How to create and implement swap effect\
         `SwapEffect` lets you swap out the whole target widget at a specified time:
 
@@ -160,22 +167,26 @@
         // swap in original widget & fade back in via a new Animate:
         .swap(builder: (_, child) => child.animate().fadeIn())
         ```
-4.  Creating Events & callbacks\
+
+4. Creating Events & callbacks\
     `Animate` includes the following callbacks:
 
     - `onPlay`: the animation has started playing after any `Animate.delay`
     - `onComplete`: the animation has finished
+
     ``` dart
     Text("Horrible Pulsing Text")
       .animate(onPlay: (controller) => controller.repeat(reverse: true))
       .fadeOut(curve: Curves.easeInOut)
     ```
+
 5. Creating Adapters and Controllers
    - Adapters synchronize the `AnimationController` to an external source. For example, the `ScrollAdapter` updates an animation based on a `ScrollController` so you can run complex animations based on scroll interactions.
-   
+
    ```dart
    ScrollController scrollController = ScrollController();
    ```
+
    ``` dart
    ListView(
           padding: const EdgeInsets.all(24.0),
@@ -201,12 +212,8 @@
           ],
         )
    ```
-   
+
 6. Testing Animations
    - When testing animations, you can set `Animate.restartOnHotReload=true` which will cause all animations to automatically restart every time you hot reload your app.
-   
- 
 
-https://user-images.githubusercontent.com/60518534/212458049-80a90821-a568-4f83-be0e-6d6cbf242c13.mp4
-
-
+<https://user-images.githubusercontent.com/60518534/212458049-80a90821-a568-4f83-be0e-6d6cbf242c13.mp4>
