@@ -160,7 +160,7 @@
         // swap in original widget & fade back in via a new Animate:
         .swap(builder: (_, child) => child.animate().fadeIn())
         ```
-4.  Creating Events & callbacks
+4.  Creating Events & callbacks\
     `Animate` includes the following callbacks:
 
     - `onPlay`: the animation has started playing after any `Animate.delay`
@@ -172,6 +172,7 @@
     ```
 5. Creating Adapters and Controllers
    - Adapters synchronize the `AnimationController` to an external source. For example, the `ScrollAdapter` updates an animation based on a `ScrollController` so you can run complex animations based on scroll interactions.
+   
    ```dart
    ScrollController scrollController = ScrollController();
    ```
