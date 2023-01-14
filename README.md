@@ -160,4 +160,48 @@
         // swap in original widget & fade back in via a new Animate:
         .swap(builder: (_, child) => child.animate().fadeIn())
         ```
+4.  Creating Events & callbacks
+    `Animate` includes the following callbacks:
 
+    - `onPlay`: the animation has started playing after any `Animate.delay`
+    - `onComplete`: the animation has finished
+    ``` dart
+    Text("Horrible Pulsing Text")
+      .animate(onPlay: (controller) => controller.repeat(reverse: true))
+      .fadeOut(curve: Curves.easeInOut)
+    ```
+5. Creating Adapters and Controllers
+   - Adapters synchronize the `AnimationController` to an external source. For example, the `ScrollAdapter` updates an animation based on a `ScrollController` so you can run complex animations based on scroll interactions.
+   ```dart
+   ScrollController scrollController = ScrollController();
+   ```
+   ``` dart
+   ListView(
+          padding: const EdgeInsets.all(24.0),
+          controller: scrollController,
+          children: [
+          Container(
+          height: 64,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [Color(0x8080DDFF), Colors.transparent]),
+          ),
+        )
+            .animate(
+              adapter: ScrollAdapter(
+                scrollController,
+                end: 500, // end 500px into the scroll
+                animated: true, // smooth the animation
+              ),
+            )
+            .fadeIn(),
+          ],
+        )
+   ```
+   
+6. Testing Animations
+   - When testing animations, you can set `Animate.restartOnHotReload=true` which will cause all animations to automatically restart every time you hot reload your app.
+   
+ 
