@@ -206,3 +206,7 @@
    - When testing animations, you can set `Animate.restartOnHotReload=true` which will cause all animations to automatically restart every time you hot reload your app.
    
  
+
+https://user-images.githubusercontent.com/60518534/212458049-80a90821-a568-4f83-be0e-6d6cbf242c13.mp4
+
+
